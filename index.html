@@ -1,0 +1,329 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Personal Health Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div class="heart">
+                ♡
+            </div>
+
+            <div>
+                <h1>Personal Health Tracker</h1>
+
+                <p>
+                    Simple daily health monitoring
+                </p>
+            </div>
+
+        </header>
+
+
+        <!-- DASHBOARD SUMMARY -->
+
+        <section class="dashboard-summary">
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    📋
+                </div>
+
+                <div class="summary-info">
+
+                    <span>Total Records</span>
+
+                    <strong id="summaryRecords">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    🩸
+                </div>
+
+                <div class="summary-info">
+
+                    <span>Latest Sugar</span>
+
+                    <strong id="summarySugar">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="summary-card">
+
+                <div class="summary-icon">
+                    ❤️
+                </div>
+
+                <div class="summary-info">
+
+                    <span>Latest BP</span>
+
+                    <strong id="summaryBP">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADD HEALTH RECORD -->
+
+        <section class="card">
+
+            <h2>
+                ➕ Add Health Record
+            </h2>
+
+            <p class="subtitle">
+                Enter the health readings for the selected date
+            </p>
+
+
+            <div class="form">
+
+                <!-- DATE -->
+
+                <div class="field">
+
+                    <label for="date">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="date"
+                    >
+
+                </div>
+
+
+                <!-- SUGAR -->
+
+                <div class="field">
+
+                    <label for="sugarBefore">
+                        Sugar Before Food
+                    </label>
+
+                    <input
+                        type="number"
+                        id="sugarBefore"
+                        placeholder="mg/dL"
+                        min="0"
+                    >
+
+                </div>
+
+
+                <!-- BP -->
+
+                <div class="field">
+
+                    <label for="bpMorning">
+                        BP Morning
+                    </label>
+
+                    <input
+                        type="text"
+                        id="bpMorning"
+                        placeholder="120/80"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTONS -->
+
+            <div class="button-row">
+
+                <button
+                    class="save-btn"
+                    onclick="saveRecord()"
+                >
+                    💾 Save Record
+                </button>
+
+
+                <button
+                    class="add-btn"
+                    onclick="addNewRecord()"
+                >
+                    ➕ Add New Record
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- HEALTH RECORDS -->
+
+        <section class="card">
+
+            <div class="title-row">
+
+                <div>
+
+                    <h2>
+                        📋 Health Records
+                    </h2>
+
+                    <p>
+                        Your saved daily readings
+                    </p>
+
+                </div>
+
+
+                <div class="count">
+
+                    <span id="recordCount">
+                        0
+                    </span>
+
+                    Records
+
+                </div>
+
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Sugar Before Food
+                            </th>
+
+                            <th>
+                                BP Morning
+                            </th>
+
+                            <th>
+                                Action
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="recordsTable">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- SUGAR CHART -->
+
+        <section class="card">
+
+            <h2>
+                📈 Sugar Trend
+            </h2>
+
+            <p class="subtitle">
+                Track your sugar readings over time
+            </p>
+
+
+            <div class="chart-box">
+
+                <canvas id="sugarChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+        <!-- DOWNLOAD AND PRINT -->
+
+        <div class="action-buttons">
+
+            <button
+                class="download-btn"
+                onclick="downloadCSV()"
+            >
+                📥 Download Records
+            </button>
+
+
+            <button
+                class="print-btn"
+                onclick="printRecords()"
+            >
+                🖨️ Print Records
+            </button>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <p class="footer">
+
+            🌿 Keeping track, one day at a time
+
+        </p>
+
+    </div>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```

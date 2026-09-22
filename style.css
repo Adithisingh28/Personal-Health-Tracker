@@ -1,0 +1,645 @@
+/* =====================================================
+   PERSONAL HEALTH TRACKER
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f8f4ff,
+            #f3faf6
+        );
+
+    color: #46404f;
+
+    padding: 30px 18px;
+
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1150px;
+    margin: auto;
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+    padding: 10px 5px;
+}
+
+.heart {
+    width: 68px;
+    height: 68px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e9ddf7,
+            #dff2e6
+        );
+
+    border-radius: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 42px;
+    color: #80659c;
+
+    box-shadow:
+        0 8px 20px
+        rgba(100, 80, 120, 0.10);
+}
+
+.header h1 {
+    color: #514565;
+    font-size: 30px;
+    margin-bottom: 6px;
+}
+
+.header p {
+    color: #85808d;
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   SUMMARY CARDS
+   ===================================================== */
+
+.dashboard-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 22px;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 18px;
+    padding: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(80, 60, 100, 0.08);
+
+    border:
+        1px solid
+        rgba(230, 224, 238, 0.8);
+
+    transition:
+        transform 0.2s ease;
+}
+
+.summary-card:hover {
+    transform: translateY(-3px);
+}
+
+.summary-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 23px;
+
+    background: #eee5fa;
+}
+
+.summary-card:nth-child(2) .summary-icon {
+    background: #e2f1e5;
+}
+
+.summary-card:nth-child(3) .summary-icon {
+    background: #fff0d9;
+}
+
+.summary-info span {
+    display: block;
+    color: #8b8691;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.summary-info strong {
+    color: #514565;
+    font-size: 22px;
+}
+
+
+/* =====================================================
+   CARDS
+   ===================================================== */
+
+.card {
+    background: white;
+
+    padding: 26px;
+
+    border-radius: 20px;
+
+    margin-bottom: 22px;
+
+    box-shadow:
+        0 8px 28px
+        rgba(80, 60, 100, 0.07);
+
+    border:
+        1px solid
+        rgba(232, 225, 239, 0.8);
+}
+
+.card h2 {
+    color: #554868;
+    margin-bottom: 6px;
+    font-size: 20px;
+}
+
+.subtitle,
+.card > p {
+    color: #8b8691;
+    font-size: 14px;
+    margin-bottom: 22px;
+}
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #625a6d;
+}
+
+.field input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border:
+        1px solid
+        #ddd6e5;
+
+    border-radius: 11px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    background: #fcfbff;
+
+    color: #46404f;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.field input:hover {
+    border-color: #c9b9d8;
+}
+
+.field input:focus {
+    border-color: #9d83bb;
+
+    background: white;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(157, 131, 187, 0.12);
+}
+
+
+/* =====================================================
+   FORM BUTTONS
+   ===================================================== */
+
+.button-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+.save-btn,
+.add-btn {
+    flex: 1;
+
+    padding: 14px 18px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.save-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #789b7d,
+            #668b6b
+        );
+}
+
+.add-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #8873a5,
+            #735f8e
+        );
+}
+
+.save-btn:hover,
+.add-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 16px
+        rgba(80, 60, 100, 0.15);
+}
+
+
+/* =====================================================
+   RECORDS
+   ===================================================== */
+
+.title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.title-row p {
+    color: #8b8691;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.count {
+    background: #eee5fa;
+    color: #735b8d;
+
+    padding: 9px 15px;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   TABLE
+   ===================================================== */
+
+.table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border:
+        1px solid
+        #e7e1ec;
+
+    border-radius: 14px;
+
+    background: white;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+}
+
+thead {
+    background:
+        linear-gradient(
+            135deg,
+            #f3edf9,
+            #eef6f0
+        );
+}
+
+th {
+    padding: 15px 12px;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.4px;
+
+    color: #5f526e;
+
+    white-space: nowrap;
+}
+
+td {
+    padding: 14px 12px;
+
+    text-align: center;
+
+    border-top:
+        1px solid
+        #eee9f1;
+
+    font-size: 13px;
+
+    white-space: nowrap;
+}
+
+tbody tr:hover {
+    background: #faf8fc;
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+   ===================================================== */
+
+.delete-btn {
+    border: none;
+
+    background: #f5dddd;
+
+    color: #9b5555;
+
+    padding: 7px 12px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.delete-btn:hover {
+    background: #ebcaca;
+}
+
+
+/* =====================================================
+   CHART
+   ===================================================== */
+
+.chart-box {
+    height: 340px;
+    position: relative;
+}
+
+
+/* =====================================================
+   DOWNLOAD / PRINT
+   ===================================================== */
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 10px 0 25px;
+}
+
+.download-btn,
+.print-btn {
+    border: none;
+
+    padding: 13px 23px;
+
+    border-radius: 11px;
+
+    color: white;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.download-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #8873a5,
+            #735f8e
+        );
+}
+
+.print-btn {
+    background:
+        linear-gradient(
+            135deg,
+            #789b7d,
+            #668b6b
+        );
+}
+
+.download-btn:hover,
+.print-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 16px
+        rgba(80, 60, 100, 0.15);
+}
+
+
+/* =====================================================
+   FOOTER
+   ===================================================== */
+
+.footer {
+    text-align: center;
+
+    color: #8c8791;
+
+    font-size: 13px;
+
+    padding: 5px 0 20px;
+}
+
+
+/* =====================================================
+   TABLET
+   ===================================================== */
+
+@media (max-width: 850px) {
+
+    .form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-summary {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 18px 10px;
+    }
+
+    .heart {
+        width: 55px;
+        height: 55px;
+        font-size: 32px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 13px;
+    }
+
+    .form {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 19px;
+        border-radius: 17px;
+    }
+
+    .button-row {
+        flex-direction: column;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+    }
+
+    .action-buttons button {
+        width: 100%;
+    }
+
+    .title-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .chart-box {
+        height: 280px;
+    }
+}
+
+
+/* =====================================================
+   PRINT
+   ===================================================== */
+
+@media print {
+
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    .header,
+    .dashboard-summary,
+    .card:first-of-type,
+    .card:last-of-type,
+    .action-buttons,
+    .footer {
+        display: none;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    .card {
+        box-shadow: none;
+        margin: 0;
+        padding: 10px;
+        border: none;
+    }
+
+    .table-wrapper {
+        border: none;
+        overflow: visible;
+    }
+
+    table {
+        width: 100%;
+        min-width: 0;
+    }
+
+    th,
+    td {
+        border: 1px solid #999;
+        padding: 8px;
+    }
+
+    .delete-btn {
+        display: none;
+    }
+}
